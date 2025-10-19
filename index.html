@@ -23,6 +23,7 @@
             animation: royalGradient 20s ease infinite;
             overflow-x: hidden;
             position: relative;
+            padding: 20px;
         }
 
         @keyframes royalGradient {
@@ -85,7 +86,7 @@
 
         .petal {
             position: absolute;
-            font-size: 24px;
+            font-size: 20px;
             opacity: 0;
             animation: royalFall linear infinite;
             filter: drop-shadow(0 5px 15px rgba(218, 165, 32, 0.8));
@@ -105,24 +106,40 @@
             }
         }
 
-        .card {
+        .container {
+            display: flex;
+            gap: 30px;
+            max-width: 1200px;
+            width: 100%;
+            position: relative;
+            z-index: 10;
+            animation: slideUpRoyal 1.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            align-items: center;
+        }
+
+        .left-side {
+            flex: 0 0 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .right-side {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px 35px;
             background: linear-gradient(135deg, rgba(30, 20, 50, 0.95), rgba(40, 20, 60, 0.95));
             backdrop-filter: blur(60px);
-            border-radius: 60px;
-            padding: 90px 70px;
+            border-radius: 35px;
             box-shadow: 
                 0 50px 200px rgba(0, 0, 0, 0.7),
                 0 0 200px rgba(218, 165, 32, 0.4),
                 inset 0 1px 0 rgba(255, 255, 255, 0.15),
                 inset 0 -1px 0 rgba(218, 165, 32, 0.3);
-            text-align: center;
-            max-width: 1000px;
-            width: 92%;
-            position: relative;
-            z-index: 10;
-            animation: slideUpRoyal 1.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            border: 2px solid;
-            border-image: linear-gradient(135deg, rgba(218, 165, 32, 0.8), rgba(255, 215, 0, 0.6), rgba(218, 165, 32, 0.8)) 1;
+            border: 2px solid rgba(218, 165, 32, 0.6);
         }
 
         @keyframes slideUpRoyal {
@@ -141,8 +158,8 @@
         }
 
         .rose-icon {
-            font-size: 140px;
-            margin-bottom: 40px;
+            font-size: 100px;
+            margin-bottom: 25px;
             animation: royalBounce 4s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
             filter: drop-shadow(0 15px 40px rgba(218, 165, 32, 0.9));
         }
@@ -164,18 +181,19 @@
 
         h1 {
             font-family: 'Cinzel', serif;
-            font-size: 5.5em;
+            font-size: 3.8em;
             font-weight: 900;
             background: linear-gradient(180deg, #ffd700, #ffed4e, #daa520, #ffd700);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 20px;
-            letter-spacing: 3px;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
             text-shadow: 0 15px 40px rgba(218, 165, 32, 0.5);
             filter: drop-shadow(0 5px 20px rgba(218, 165, 32, 0.7));
             animation: goldGlow 4s ease-in-out infinite;
             word-spacing: 0.2em;
+            line-height: 1.3;
         }
 
         @keyframes goldGlow {
@@ -187,20 +205,12 @@
             }
         }
 
-        .ornament-top {
-            font-size: 2em;
+        .ornament {
+            font-size: 1.5em;
             color: rgba(218, 165, 32, 0.9);
-            margin: 20px 0;
-            letter-spacing: 10px;
+            letter-spacing: 8px;
             animation: fadeInGold 1.5s ease-out;
-        }
-
-        .ornament-bottom {
-            font-size: 2em;
-            color: rgba(218, 165, 32, 0.9);
-            margin: 20px 0;
-            letter-spacing: 10px;
-            animation: fadeInGold 1.5s ease-out 0.3s both;
+            margin: 12px 0;
         }
 
         @keyframes fadeInGold {
@@ -215,11 +225,11 @@
         }
 
         .subtitle {
-            font-size: 1.8em;
+            font-size: 1.4em;
             color: rgba(255, 215, 0, 0.95);
             margin-bottom: 20px;
             font-weight: 400;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             font-style: italic;
             animation: slideInSubtitle 1.2s ease-out 0.4s both;
         }
@@ -236,31 +246,29 @@
         }
 
         .countdown-label {
-            font-size: 1.1em;
+            font-size: 1em;
             color: rgba(218, 165, 32, 0.8);
-            letter-spacing: 3px;
-            margin-bottom: 50px;
+            letter-spacing: 2px;
+            margin-bottom: 35px;
             text-transform: uppercase;
             font-family: 'Montserrat', sans-serif;
         }
 
         #timer {
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-top: 60px;
+            gap: 15px;
             perspective: 1500px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .time-box {
             background: linear-gradient(135deg, rgba(218, 165, 32, 0.3), rgba(255, 215, 0, 0.2));
-            padding: 50px 55px;
-            border-radius: 25px;
-            min-width: 160px;
+            padding: 25px 28px;
+            border-radius: 18px;
             box-shadow: 
-                0 25px 80px rgba(0, 0, 0, 0.6),
-                0 0 60px rgba(218, 165, 32, 0.5),
+                0 20px 60px rgba(0, 0, 0, 0.6),
+                0 0 50px rgba(218, 165, 32, 0.5),
                 inset 0 1px 0 rgba(255, 255, 255, 0.2),
                 inset 0 -1px 0 rgba(218, 165, 32, 0.4);
             transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -268,6 +276,8 @@
             overflow: hidden;
             border: 2px solid rgba(218, 165, 32, 0.6);
             cursor: pointer;
+            text-align: center;
+            min-width: 85px;
         }
 
         .time-box::before {
@@ -296,10 +306,10 @@
         }
 
         .time-box:hover {
-            transform: translateY(-15px) scale(1.12) rotateX(8deg);
+            transform: translateY(-8px) scale(1.08) rotateX(8deg);
             box-shadow: 
-                0 40px 120px rgba(218, 165, 32, 0.7),
-                0 0 100px rgba(255, 215, 0, 0.6),
+                0 30px 90px rgba(218, 165, 32, 0.7),
+                0 0 80px rgba(255, 215, 0, 0.6),
                 inset 0 1px 0 rgba(255, 255, 255, 0.3);
             border-color: rgba(255, 215, 0, 0.9);
         }
@@ -311,16 +321,16 @@
         }
 
         .time-box span:first-child {
-            font-size: 5em;
+            font-size: 3.2em;
             font-weight: 900;
             line-height: 1;
-            margin-bottom: 18px;
+            margin-bottom: 12px;
             background: linear-gradient(180deg, #ffed4e, #ffd700, #daa520);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             text-shadow: 0 8px 25px rgba(218, 165, 32, 0.6);
-            letter-spacing: -3px;
+            letter-spacing: -2px;
             animation: numberGlow 1.5s ease-in-out infinite;
             font-family: 'Cinzel', serif;
         }
@@ -335,26 +345,26 @@
         }
 
         .label {
-            font-size: 1.1em;
+            font-size: 0.9em;
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             font-weight: 600;
             color: rgba(255, 215, 0, 0.85);
             text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
             font-family: 'Montserrat', sans-serif;
         }
 
-        #greeting-container h2 {
+        h2 {
             font-family: 'Cinzel', serif;
-            font-size: 4.2em;
+            font-size: 2.2em;
             background: linear-gradient(180deg, #ffd700, #ffed4e, #daa520);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 50px;
-            line-height: 1.5;
+            margin-bottom: 25px;
+            line-height: 1.4;
             font-weight: 900;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             animation: fadeInScale 1s ease-out;
         }
 
@@ -370,15 +380,14 @@
         }
 
         .vietnamese-greeting, .russian-greeting {
-            background: linear-gradient(135deg, rgba(218, 165, 32, 0.15), rgba(255, 215, 0, 0.08));
-            padding: 50px;
-            border-radius: 30px;
-            margin: 40px 0;
-            border-left: 6px solid;
-            border-image: linear-gradient(180deg, rgba(218, 165, 32, 0.8), rgba(255, 215, 0, 0.6)) 1;
+            background: linear-gradient(135deg, rgba(218, 165, 32, 0.1), rgba(255, 215, 0, 0.05));
+            padding: 30px;
+            border-radius: 20px;
+            margin: 20px 0;
+            border-left: 5px solid rgba(218, 165, 32, 0.8);
             backdrop-filter: blur(20px);
-            border: 2px solid rgba(218, 165, 32, 0.4);
-            box-shadow: 0 15px 60px rgba(218, 165, 32, 0.25);
+            border: 1px solid rgba(218, 165, 32, 0.3);
+            box-shadow: 0 10px 40px rgba(218, 165, 32, 0.2);
             transition: all 0.5s ease;
             position: relative;
             overflow: hidden;
@@ -388,23 +397,22 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at 0 0, rgba(255, 215, 0, 0.1), transparent);
+            background: radial-gradient(circle at 0 0, rgba(255, 215, 0, 0.08), transparent);
             pointer-events: none;
         }
 
         .vietnamese-greeting:hover, .russian-greeting:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 80px rgba(218, 165, 32, 0.4);
-            border-color: rgba(255, 215, 0, 0.8);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 60px rgba(218, 165, 32, 0.3);
         }
 
         .vietnamese-greeting p, .russian-greeting p {
-            font-size: 1.35em;
-            line-height: 2.2;
+            font-size: 1.05em;
+            line-height: 1.8;
             color: rgba(255, 255, 255, 0.95);
-            margin-bottom: 25px;
+            margin-bottom: 15px;
             font-weight: 400;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.3px;
             position: relative;
             z-index: 1;
         }
@@ -412,25 +420,24 @@
         strong {
             color: rgba(255, 215, 0, 0.95);
             font-weight: 600;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
         .school-wish {
             font-weight: 500;
             color: rgba(255, 215, 0, 0.9);
-            margin-top: 30px;
-            font-size: 1.3em;
-            letter-spacing: 1px;
+            margin-top: 15px;
+            font-size: 1em;
             position: relative;
             z-index: 1;
         }
 
         .russian-title {
-            font-size: 1.7em !important;
+            font-size: 1.3em !important;
             font-weight: 700 !important;
             color: rgba(255, 215, 0, 0.95) !important;
-            margin-bottom: 35px !important;
-            letter-spacing: 2px;
+            margin-bottom: 15px !important;
+            letter-spacing: 1px;
             font-family: 'Cinzel', serif !important;
             position: relative;
             z-index: 1;
@@ -440,8 +447,8 @@
             border: none;
             height: 2px;
             background: linear-gradient(90deg, transparent, rgba(218, 165, 32, 0.6), transparent);
-            margin: 60px 0;
-            box-shadow: 0 10px 40px rgba(218, 165, 32, 0.3);
+            margin: 35px 0;
+            box-shadow: 0 8px 30px rgba(218, 165, 32, 0.25);
             position: relative;
         }
 
@@ -452,19 +459,21 @@
             top: 50%;
             transform: translate(-50%, -50%);
             background: linear-gradient(135deg, rgba(30, 20, 50, 0.95), rgba(40, 20, 60, 0.95));
-            padding: 0 20px;
-            font-size: 2em;
+            padding: 0 15px;
+            font-size: 1.5em;
             color: rgba(218, 165, 32, 0.9);
         }
 
         .greeting-signature {
-            font-size: 1.6em;
+            font-size: 1.2em;
             font-style: italic;
             color: rgba(255, 215, 0, 0.9);
-            margin-top: 50px;
+            margin-top: 30px;
             font-weight: 400;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             animation: fadeIn 1.2s ease-out 0.6s both;
+            position: relative;
+            z-index: 1;
         }
 
         @keyframes fadeIn {
@@ -478,68 +487,91 @@
             }
         }
 
-        @media (max-width: 768px) {
-            .card {
-                padding: 60px 40px;
-                border-radius: 40px;
+        @media (max-width: 1024px) {
+            .container {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .left-side, .right-side {
+                min-width: auto;
+                width: 100%;
             }
 
             h1 {
-                font-size: 3.2em;
-                letter-spacing: 2px;
+                font-size: 2.8em;
+            }
+
+            #timer {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .right-side {
+                padding: 35px 25px;
+                border-radius: 30px;
+            }
+
+            h1 {
+                font-size: 2.2em;
+                letter-spacing: 1px;
             }
 
             .rose-icon {
-                font-size: 100px;
+                font-size: 80px;
             }
 
-            .ornament-top, .ornament-bottom {
-                font-size: 1.4em;
+            .ornament {
+                font-size: 1.2em;
                 letter-spacing: 5px;
             }
 
             .subtitle {
-                font-size: 1.3em;
+                font-size: 1.1em;
                 margin-bottom: 15px;
             }
 
             .countdown-label {
-                font-size: 0.95em;
-                margin-bottom: 35px;
+                font-size: 0.9em;
+                margin-bottom: 25px;
             }
 
             .time-box {
-                min-width: 120px;
-                padding: 35px 30px;
-                border-radius: 20px;
+                padding: 25px 20px;
+                border-radius: 15px;
             }
 
             .time-box span:first-child {
-                font-size: 3.2em;
+                font-size: 2.5em;
             }
 
             .label {
-                font-size: 0.95em;
+                font-size: 0.8em;
             }
 
             #timer {
-                gap: 20px;
-                margin-top: 40px;
+                gap: 15px;
             }
 
-            #greeting-container h2 {
-                font-size: 2.5em;
-                letter-spacing: 1px;
+            h2 {
+                font-size: 1.6em;
+                letter-spacing: 0.5px;
             }
 
             .vietnamese-greeting, .russian-greeting {
-                padding: 35px;
-                border-radius: 22px;
+                padding: 20px;
+                border-radius: 15px;
             }
 
             .vietnamese-greeting p, .russian-greeting p {
-                font-size: 1.1em;
-                line-height: 1.9;
+                font-size: 0.95em;
+                line-height: 1.6;
             }
         }
     </style>
@@ -550,58 +582,71 @@
     </div>
     <div class="floating-petals" id="petals"></div>
     
-    <div id="countdown-container" class="card">
-        <div class="rose-icon">🌹</div>
-        <div class="ornament-top">◆ ✦ ◆</div>
-        <h1>20/10 Happy Women's Day</h1>
-        <div class="ornament-bottom">◆ ✦ ◆</div>
-        <p class="subtitle">Sắp tới gòi mn ơi :))</p>
-        <div class="countdown-label">Thời gian còn lại</div>
-        <div id="timer">
-            <div class="time-box">
-                <span id="days">00</span>
-                <span class="label">Ngày</span>
-            </div>
-            <div class="time-box">
-                <span id="hours">00</span>
-                <span class="label">Giờ</span>
-            </div>
-            <div class="time-box">
-                <span id="minutes">00</span>
-                <span class="label">Phút</span>
-            </div>
-            <div class="time-box">
-                <span id="seconds">00</span>
-                <span class="label">Giây</span>
+    <div id="countdown-container" class="container">
+        <div class="left-side">
+            <div class="rose-icon">🌹</div>
+            <div class="ornament">◆ ✦ ◆</div>
+            <h1>20/10<br>Happy<br>Women's Day</h1>
+            <div class="ornament">◆ ✦ ◆</div>
+            <p class="subtitle">Sắp tới gòi mn ơi :))</p>
+        </div>
+
+        <div class="right-side">
+            <div class="countdown-label">Thời gian còn lại</div>
+            <div id="timer">
+                <div class="time-box">
+                    <span id="days">00</span>
+                    <span class="label">Ngày</span>
+                </div>
+                <div class="time-box">
+                    <span id="hours">00</span>
+                    <span class="label">Giờ</span>
+                </div>
+                <div class="time-box">
+                    <span id="minutes">00</span>
+                    <span class="label">Phút</span>
+                </div>
+                <div class="time-box">
+                    <span id="seconds">00</span>
+                    <span class="label">Giây</span>
+                </div>
             </div>
         </div>
     </div>
     
-    <div id="greeting-container" class="hidden card">
-        <div class="rose-icon">🌷</div>
-        <div class="ornament-top">◆ ✦ ◆</div>
-        <h2>Chúc mừng Ngày Phụ nữ Việt Nam 20/10</h2>
-        <div class="ornament-bottom">◆ ✦ ◆</div>
-        
-        <div class="vietnamese-greeting">
-            <p>Nhân dịp Ngày Phụ nữ Việt Nam 20/10, xin kính chúc tất cả chị em phụ nữ luôn <strong>mạnh khỏe, hạnh phúc, xinh đẹp và thành công</strong> trong công việc cũng như cuộc sống.</p>
-            <p class="school-wish">Chúc các bạn luôn <strong>học giỏi</strong>, đạt được nhiều <strong>thành tích cao</strong> trong học tập! 📚✨</p>
+    <div id="greeting-container" class="hidden">
+        <div class="container">
+            <div class="left-side">
+                <div class="rose-icon">🌷</div>
+                <div class="ornament">◆ ✦ ◆</div>
+                <h1 style="font-size: 2.8em;">Chúc mừng<br>Ngày Phụ nữ<br>Việt Nam 20/10</h1>
+                <div class="ornament">◆ ✦ ◆</div>
+            </div>
+
+            <div class="right-side">
+                <h2 style="margin-top: 0;">Lời chúc tốt lành</h2>
+                
+                <div class="vietnamese-greeting">
+                    <p>Nhân dịp Ngày Phụ nữ Việt Nam 20/10, xin kính chúc tất cả chị em phụ nữ luôn <strong>mạnh khỏe, hạnh phúc, xinh đẹp và thành công</strong> trong công việc cũng như cuộc sống.</p>
+                    <p class="school-wish">Chúc các bạn luôn <strong>học giỏi</strong>, đạt được nhiều <strong>thành tích cao</strong> trong học tập! 📚✨</p>
+                </div>
+                
+                <hr class="separator">
+                
+                <div class="russian-greeting">
+                    <p class="russian-title">🇷🇺 Поздравление 🇷🇺</p>
+                    <p>В честь Дня вьетнамских женщин желаю всем крепкого здоровья, счастья, красоты и успехов. Желаю всем вам хорошей учёбы и высоких достижений!</p>
+                </div>
+                
+                <p class="greeting-signature">Trân trọng và yêu thương! 💕</p>
+            </div>
         </div>
-        
-        <hr class="separator">
-        
-        <div class="russian-greeting">
-            <p class="russian-title">🇷🇺 Поздравление с 20 Октября 🇷🇺</p>
-            <p>В честь Дня вьетнамских женщин, 20 октября, желаю всем женщинам крепкого здоровья, счастья, красоты и успехов в работе и жизни. Желаю всем вам хорошей учёбы и высоких достижений в учёбе.</p>
-        </div>
-        
-        <p class="greeting-signature">Trân trọng và yêu thương! 💕</p>
     </div>
 
     <script>
         // Create stars
         const bgContainer = document.querySelector('.background-animation');
-        for (let i = 0; i < 30; i++) {
+        for (let i = 0; i < 25; i++) {
             const star = document.createElement('div');
             star.className = 'stars';
             star.style.left = Math.random() * 100 + '%';
@@ -615,14 +660,14 @@
         const petalsContainer = document.getElementById('petals');
         const petalEmojis = ['🌹', '🌷', '💐', '🌸'];
         
-        for (let i = 0; i < 25; i++) {
+        for (let i = 0; i < 20; i++) {
             const petal = document.createElement('div');
             petal.className = 'petal';
             petal.textContent = petalEmojis[Math.floor(Math.random() * petalEmojis.length)];
             petal.style.left = Math.random() * 100 + '%';
             petal.style.animationDuration = (Math.random() * 10 + 15) + 's';
             petal.style.animationDelay = Math.random() * 8 + 's';
-            petal.style.fontSize = (Math.random() * 12 + 24) + 'px';
+            petal.style.fontSize = (Math.random() * 10 + 18) + 'px';
             petalsContainer.appendChild(petal);
         }
 
